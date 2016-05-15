@@ -12,8 +12,8 @@ $ make all
 
 Open another console and run the following commands on each one respectively:
 ```sh
-./server
-./client
+$ ./server
+$ ./client
 ```
 
 ### Note:
