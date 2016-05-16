@@ -56,39 +56,39 @@ int main(int argc, char const *argv[])
         cout << "--> Error on accepting..." << endl;
 
     
-    while (server > 0) 
-    {
-        strcpy(buffer, "--> Server connected...\n");
-        send(server, buffer, bufsize, 0);
-        cout << "--> Connected to the client #1" << endl;
-        cout << "\nEnter # to end the connection\n\n" << endl;
-
-
-        cout << "Client: ";
-        recv(server, buffer, bufsize, 0);
-        cout << buffer << endl;
-        if (check_exit(buffer)) 
-                isExit = true;
-
-
-        while (!isExit) {
-            cout << "Server: ";
-            cin.getline(buffer, bufsize);
+        while (server > 0) 
+        {
+            strcpy(buffer, "--> Server connected...\n");
             send(server, buffer, bufsize, 0);
-            if (check_exit(buffer)) 
-                    break;
+            cout << "--> Connected to the client #1" << endl;
+            cout << "\nEnter # to end the connection\n\n" << endl;
 
 
             cout << "Client: ";
             recv(server, buffer, bufsize, 0);
             cout << buffer << endl;
             if (check_exit(buffer)) 
-                    break;
+                    isExit = true;
+
+
+            while (!isExit) {
+                cout << "Server: ";
+                cin.getline(buffer, bufsize);
+                send(server, buffer, bufsize, 0);
+                if (check_exit(buffer)) 
+                        break;
+
+
+                cout << "Client: ";
+                recv(server, buffer, bufsize, 0);
+                cout << buffer << endl;
+                if (check_exit(buffer)) 
+                        break;
+            }
+            // close(client);
+            cout << "\nGoodbye..." << endl;
+            isExit = false;
+            exit(1);
         }
-        // close(client);
-        cout << "\nGoodbye..." << endl;
-        isExit = false;
-        exit(1);
-    }
-    return 0;
+        return 0;
 }
