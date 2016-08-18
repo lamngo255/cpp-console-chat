@@ -1,6 +1,6 @@
 # C++ Chat Client
 
-A simple console-based chat which demonstrates client-server model and socket programming.
+A simple console-based chat server which demonstrates client-server model and socket programming.
 
 
 ### Instructions
